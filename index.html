@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+
+        // Costanzo's fucking terms
+        var replecing = {
+            gr: 'g',
+            nv: 'vv',
+            si: 'ti',
+            st: 't',
+            uo: 'o',
+            z: 'tt',
+            }
+
+        // ----- Firefox, Google Chrome, Opera, Safari, Internet Explorer >= 9
+        function OnInput (event) {
+            // ----- Get source text
+            destination_text = event.target.value;
+            // ------ Replace Costanzo's fucking chars
+            for(key in replecing) {
+                console.log(key);
+                console.log(replecing[key]);
+                var re = new RegExp(key, 'g');
+                destination_text = destination_text.replace(re, replecing[key]);
+                }
+            // ----- Translate it, baby. Oh yeah. C'mon. Mmhhh....
+            document.getElementById("destination").innerHTML = destination_text;
+            }
+
+    </script>
+</head>
+    
+<body>
+
+<textarea id="source" oninput="OnInput (event)" rows="5" cols="40">
+Benvenuti. Grazie a tutti per essere venuti. Ora state buoni.
+</textarea>
+
+<p id="destination"></p>
+
+</body>
+</html>
